@@ -27,11 +27,11 @@ Since I had decided to use selenium, I did not look at the JavaScript that power
 
 ### Writing words to the board
 
-When a letter is written to the board while playing the game for real, it is reflected both in the `letter` attribute of the corresponding `<game-title>` tag and in the inner HTML of its child `div`. Letters written to the inner HTML were either not reflected to the page or were overwritten by the value of the `letter` attribute, so letters are written directly to the letter `attribute` (see the `write_word` and `set_letter` methods of the `WordleController` class in [wordle_controller.py](wordle_controller.py).
+When a letter is written to the board while playing the game for real, it is reflected both in the `letter` attribute of the corresponding `<game-title>` tag and in the inner HTML of its child `div`. Letters written to the inner HTML were either not reflected to the page or were overwritten by the value of the `letter` attribute, so letters are written directly to the `letter` attribute (see the `write_word` and `set_letter` methods of the `WordleController` class in [wordle_controller.py](wordle_controller.py).
 
 ### Changing tile colours
 
-Each `<game-tile>` tag has its own `<style>` tag, so tile colours are changed by overwriting the inner HTML of these tags. I apply tile colours by replacing the value of the `background-color` property under `.tile[data-state='tbd']` so that the new colour will be reflected without needing to change the tiles `data-state` property. This is done just after the `flip-in` animation completes (which takes 250ms) to recreate the display in the original game (see the `change_tbd_color` method of the `WordleController` class in [wordle_controller.py](wordle_controller.py)).
+Each `<game-tile>` has its own `<style>` tag, so tile colours are changed by overwriting the inner HTML of these tags. I apply tile colours by replacing the value of the `background-color` property under `.tile[data-state='tbd']` so that the new colour will be reflected without needing to change the tile's `data-state` attribute. This is done just after the `flip-in` animation completes (which takes 250ms) to recreate the display in the original game (see the `change_tbd_color` method of the `WordleController` class in [wordle_controller.py](wordle_controller.py)).
 
 ### Flipping tiles
 
@@ -39,6 +39,6 @@ Tiles are flipped by setting the `data-animation` attribute of the tile's child 
 
 ## New discoveries from this project
 
-I used the itertools cycle function for cycling through the list of 9 colours multiple times in [bday-message.py](bday-message.py). I learnt about this function for the first time while working on this project and found it very convenient.
+I used the itertools cycle function for cycling through the list of 9 colours multiple times in [bday-message.py](bday-message.py). I learnt about this function for the first time while working on this project, but expect to use it again as it is very concise and convenient for this kind of use case.
 
 <a href="https://docs.python.org/3/library/itertools.html#:~:text=itertools.cycle(iterable)"><img src="readme-img/itertools-cycle.PNG"></a>
