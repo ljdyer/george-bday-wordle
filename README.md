@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python bday-message.py
 ```
 
-## How I did it
+## How it works
 
 Since I had decided to use selenium, I did not look at the JavaScript that powers the Wordle game, but I had to work out some aspects of what the JavaScript on the page does through trial and error to get the effect I wanted.
 
