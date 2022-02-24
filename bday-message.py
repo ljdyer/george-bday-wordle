@@ -37,7 +37,7 @@ def display_message():
         a new colour in the process."""
 
         for i in range(5):
-            controller.flip_letter(row_index, i)
+            controller.flip_tile(row_index, i)
             sleep(sleep_between_tiles)
             controller.change_tbd_color(row_index, i, next(COLORS))
 

@@ -150,7 +150,7 @@ class WordleController:
             tile, letter)
 
     # ====================
-    def flip_letter(self, row_index: int, col_index: int):
+    def flip_tile(self, row_index: int, col_index: int):
         """Trigger the 'flip in' animation for the tile in the row and column
         specified"""
 
