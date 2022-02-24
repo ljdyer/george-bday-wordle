@@ -25,10 +25,6 @@ class WordleController:
     website.
 
     Method called directly by play_wordle.py:
-
-        guess_word(word: str) -> list
-            Enters a word into the game board and returns the result as
-            a list of strings ('correct', 'present' or 'absent')
     """
 
     # ====================
@@ -168,35 +164,7 @@ class WordleController:
         )
 
     # ====================
-    def set_tbd(self, row_index: int, col_index: int):
-        """Set the 'game-state' attribute of the tile in the row and column
-        specified to 'correct'"""
-
-        row = self.rows[row_index]
-        tiles = row.find_elements(By.CSS_SELECTOR, "game-tile")
-        tile = tiles[col_index].shadow_root
-        tile_div = tile.find_element(By.CSS_SELECTOR, "div.tile")
-        self.driver.execute_script(
-            "arguments[0].setAttribute('data-state', 'correct')",
-            tile_div
-        )
-
-    # ====================
-    def set_correct(self, row_index: int, col_index: int):
-        """Set the 'game-state' attribute of the tile in the row and column
-        specified to 'correct'"""
-
-        row = self.rows[row_index]
-        tiles = row.find_elements(By.CSS_SELECTOR, "game-tile")
-        tile = tiles[col_index].shadow_root
-        tile_div = tile.find_element(By.CSS_SELECTOR, "div.tile")
-        self.driver.execute_script(
-            "arguments[0].setAttribute('data-state', 'correct')",
-            tile_div
-        )
-
-    # ====================
-    def change_tbd_style(self, row_index: int, col_index: int, color: str):
+    def change_tbd_color(self, row_index: int, col_index: int, color: str):
         """Change the background-color attribute for .tile[data-state='tbd']
         in the style tag associated with the tile in the row and column
         specified"""
